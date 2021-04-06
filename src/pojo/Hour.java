@@ -2,25 +2,30 @@ package pojo;
 
 public class Hour {
 	int hour, minute, second;
-	public void Hora (int hour, int minute, int second){
-    
-		if(hour>=0 && hour <24 )
+	
+	public Hour(int hour, int minute, int second) {
+		super();
+		
+		if(hour>=0 && hour <24 ) {
             this.hour = hour;
-        else
+		}else {
             throw new IllegalArgumentException("Hora inválida");
-            
-        if(minute >=0 && minute < 60)
+		}
+		
+        if(minute >=0 && minute < 60) {
             this.minute = minute;
-        else
+        }else {
             throw new IllegalArgumentException("Minutos inválidos");
+        }
         
-        if( second >=0 && second < 60)
+        if( second >=0 && second < 60) {
             this.second = second;
-        else
+        } else {
             throw new IllegalArgumentException("Segundos inválidos");
-            
-                
+	
+        }
     }
+	
 	@Override
 	public String toString() {
 		return "Hour [hour=" + hour + ", minute=" + minute + ", second=" + second + "]";
