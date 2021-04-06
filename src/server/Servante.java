@@ -14,7 +14,6 @@ public class Servante extends UnicastRemoteObject implements RemoteInterface{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	
 	
 
@@ -85,4 +84,7 @@ public class Servante extends UnicastRemoteObject implements RemoteInterface{
 			
 			return lossTotal;
 	}
+	
+	
+	
 }

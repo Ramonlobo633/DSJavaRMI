@@ -13,4 +13,5 @@ public interface RemoteInterface extends Remote {
 	public Employee winningEmployee(ArrayList<Employee> employees) throws RemoteException;
 	public void lateEmployees(Manager manager) throws RemoteException;
 	public double calcLossWithLate(Manager manager) throws RemoteException;
+	
 }
