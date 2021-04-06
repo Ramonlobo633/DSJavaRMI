@@ -5,15 +5,13 @@ public class Employee extends Person {
 	double timeWorked, timeLate, extraHourWorked;
 	boolean late;
 	
-	public Employee(String name, int age) {
+	public Employee(String name, int age, int idEmployee, Hour arrivalTime, Hour departureTime) {
 		super(name, age);
 		// TODO Auto-generated constructor stub
-	}
-	
-
-	public void Employee(String name, Hour horaChegada, Hour horaSaida){
-        this.name=name;
-        this.timeLate = timeLate(horaChegada);
+		
+		this.name=name;
+		this.idEmployee = idEmployee;
+        this.timeLate = timeLate(arrivalTime);
         
         if(this.timeLate > 0)
             this.late=true;
@@ -22,17 +20,18 @@ public class Employee extends Person {
             System.out.println("Employee '" + this.name + "' late. ");
         }
         
-        this.timeWorked = hoursWorked(horaChegada, horaSaida);
+        this.timeWorked = hoursWorked(arrivalTime, departureTime);
+	}
+	
+    
+    public double timeLate(Hour arrivalTime){
+        return ((arrivalTime.getHour()*60*60 + arrivalTime.getMinute()*60 + 
+        		arrivalTime.getSecond()) - 8*3600.0)/3600.0;
     }
     
-    public double timeLate(Hour horaChegada){
-        return ((horaChegada.getHour()*60*60 + horaChegada.getMinute()*60 + 
-                 horaChegada.getSecond()) - 8*3600.0)/3600.0;
-    }
-    
-    public double hoursWorked(Hour horaChegada, Hour horaSaida){
-        double horas = ( (horaSaida.getHour()*60 + horaSaida.getMinute()) - 
-                       (horaChegada.getHour()*60 + horaChegada.getMinute()) )/60.0;
+    public double hoursWorked(Hour arrivalTime, Hour departureTime){
+        double horas = ( (departureTime.getHour()*60 + departureTime.getMinute()) - 
+                       (arrivalTime.getHour()*60 + arrivalTime.getMinute()) )/60.0;
         
         if(horas < 0)
             throw new IllegalArgumentException("Hora de saída anterior a hora de chegada");

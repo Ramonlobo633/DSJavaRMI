@@ -23,17 +23,6 @@ public class Manager extends Person{
 		return lossTotal;
 	}
 	
-	public Employee winningEmployee(ArrayList<Employee> employees) {
-		Employee winner = employees.get(0);
-		double winTimeWorked = employees.get(0).timeWorked;
-		for (Employee e : employees) {
-			if(winTimeWorked < e.timeWorked) {
-				winTimeWorked = e.timeWorked;
-				winner = e;
-			}
-		}	
-		
-		return winner;
-	}
+	
 
 }
