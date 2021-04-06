@@ -9,7 +9,6 @@ public class Employee extends Person {
 		super(name, age);
 		// TODO Auto-generated constructor stub
 		
-		this.name=name;
 		this.idEmployee = idEmployee;
         this.timeLate = timeLate(arrivalTime);
         
